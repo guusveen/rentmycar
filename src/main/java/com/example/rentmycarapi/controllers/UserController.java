@@ -1,34 +1,32 @@
 package com.example.rentmycarapi.controllers;
 
 import com.example.rentmycarapi.entities.User;
-import com.example.rentmycarapi.repositories.UserRepository;
+import com.example.rentmycarapi.services.UserService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/users")
 public class UserController {
+    private final UserService UserService;
 
-    private final UserRepository userRepository;
-
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    @PostMapping("/add")
-    public boolean addUser(@RequestParam String username){
-        User user = new User();
-        user.setUsername(username);
-        userRepository.save(user);
-        return true;
+    public UserController(UserService UserService) {
+        this.UserService = UserService;
     }
 
     @GetMapping
-    public Iterable<User> getUsers() {
-        return userRepository.findAll();
+    public Iterable<User> getAll() {
+        return UserService.getAll();
     }
 
     @GetMapping("/{id}")
-    public User findUserById(@PathVariable Integer id) {
-        return userRepository.findUserById(id);
+    public Optional<User> getById(@PathVariable long id) {
+        return UserService.getById(id);
+    }
+
+    @PostMapping
+    public User createUser(@RequestBody User User) {
+        return UserService.createUser(User);
     }
 }

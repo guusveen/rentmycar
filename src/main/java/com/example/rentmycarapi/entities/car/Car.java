@@ -1,16 +1,23 @@
 package com.example.rentmycarapi.entities.car;
 
+import com.example.rentmycarapi.entities.Listing;
 import com.example.rentmycarapi.entities.User;
 import com.example.rentmycarapi.interfaces.Costs;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 @Entity
 public abstract class Car implements Costs {
-    @Getter
     @Id
+    @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -26,6 +33,11 @@ public abstract class Car implements Costs {
     @Getter
     @Setter
     private String picture;
+
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Listing> listings;
 
     public Car() {
     }

@@ -9,11 +9,7 @@ public class ElectricVehicle extends Car {
     public ElectricVehicle() {
     }
 
-    public ElectricVehicle(
-            User owner,
-            String model,
-            String picture
-    ) {
+    public ElectricVehicle(User owner, String model, String picture) {
         super(owner, model, picture);
     }
 

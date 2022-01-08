@@ -1,14 +1,20 @@
 package com.example.rentmycarapi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 @Entity
 public class Reservation {
     @Id
+    @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 

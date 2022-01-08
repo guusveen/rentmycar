@@ -17,12 +17,7 @@ public class InternalCombustionEngine extends Car {
     public InternalCombustionEngine() {
     }
 
-    public InternalCombustionEngine(
-            User owner,
-            String model,
-            String picture,
-            FuelType fuelType
-    ) {
+    public InternalCombustionEngine(User owner, String model, String picture, FuelType fuelType) {
         super(owner, model, picture);
         this.fuelType = fuelType;
     }
