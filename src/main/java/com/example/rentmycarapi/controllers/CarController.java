@@ -1,7 +1,10 @@
 package com.example.rentmycarapi.controllers;
 
-import com.example.rentmycarapi.entities.Car;
+import com.example.rentmycarapi.entities.car.Car;
+import com.example.rentmycarapi.entities.car.InternalCombustionEngine;
 import com.example.rentmycarapi.repositories.CarRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -9,15 +12,8 @@ import org.springframework.web.bind.annotation.*;
 public class CarController {
     private final CarRepository carRepository;
 
-
     public CarController(CarRepository carRepository) {
         this.carRepository = carRepository;
-    }
-
-    @PostMapping
-    public Car createCar(@RequestBody Car car) {
-        carRepository.save(car);
-        return car;
     }
 
     @GetMapping()
@@ -25,5 +21,19 @@ public class CarController {
         return carRepository.findAll();
     }
 
+    @PostMapping
+    public Car createCar(@RequestBody InternalCombustionEngine car) {
+        carRepository.save(car);
+        return car;
+    }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteById(@PathVariable long id) {
+        if (!carRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        } else {
+            carRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        }
+    }
 }

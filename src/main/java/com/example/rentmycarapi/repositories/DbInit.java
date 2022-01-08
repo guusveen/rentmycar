@@ -1,6 +1,10 @@
 package com.example.rentmycarapi.repositories;
 
-import com.example.rentmycarapi.entities.*;
+import com.example.rentmycarapi.entities.Listing;
+import com.example.rentmycarapi.entities.Reservation;
+import com.example.rentmycarapi.entities.User;
+import com.example.rentmycarapi.entities.car.Car;
+import com.example.rentmycarapi.entities.car.InternalCombustionEngine;
 import com.example.rentmycarapi.enums.FuelType;
 import org.springframework.stereotype.Component;
 
@@ -28,7 +32,7 @@ public class DbInit {
         FuelType gas = FuelType.GAS;
 
         //cars
-        Car porsche = new ICE(
+        Car porsche = new InternalCombustionEngine(
                 guus,
                 "Porsche Carrera",
                 "https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg",

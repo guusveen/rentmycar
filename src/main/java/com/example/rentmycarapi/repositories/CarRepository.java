@@ -1,6 +1,6 @@
 package com.example.rentmycarapi.repositories;
 
-import com.example.rentmycarapi.entities.Car;
+import com.example.rentmycarapi.entities.car.Car;
 import com.example.rentmycarapi.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 

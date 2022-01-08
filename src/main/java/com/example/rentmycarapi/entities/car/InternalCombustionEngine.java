@@ -1,5 +1,6 @@
-package com.example.rentmycarapi.entities;
+package com.example.rentmycarapi.entities.car;
 
+import com.example.rentmycarapi.entities.User;
 import com.example.rentmycarapi.enums.FuelType;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,16 +8,16 @@ import lombok.Setter;
 import javax.persistence.Entity;
 
 @Entity
-public class ICE extends Car {
+public class InternalCombustionEngine extends Car {
 
     @Getter
     @Setter
     private FuelType fuelType;
 
-    public ICE() {
+    public InternalCombustionEngine() {
     }
 
-    public ICE(
+    public InternalCombustionEngine(
             User owner,
             String model,
             String picture,

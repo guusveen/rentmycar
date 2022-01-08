@@ -1,5 +1,6 @@
-package com.example.rentmycarapi.entities;
+package com.example.rentmycarapi.entities.car;
 
+import com.example.rentmycarapi.entities.User;
 import com.example.rentmycarapi.interfaces.Costs;
 import lombok.Getter;
 import lombok.Setter;
