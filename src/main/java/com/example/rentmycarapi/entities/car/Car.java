@@ -11,6 +11,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * This is the base class for InternalCombustionEngine and ElectricalVehicle Cars
+ */
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
@@ -39,9 +42,18 @@ public abstract class Car implements Costs {
     @OneToMany(mappedBy = "car", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Listing> listings;
 
+    /**
+     * Empty constructor
+     */
     public Car() {
     }
 
+    /**
+     * Constructor
+     * @param owner
+     * @param model
+     * @param picture
+     */
     public Car(User owner, String model, String picture) {
         this.owner = owner;
         this.model = model;

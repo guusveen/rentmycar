@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 /**
- *
+ * This class implements the methods of the CarService interface
  */
 @Service
 public class CarServiceImpl implements CarService {
@@ -26,7 +26,7 @@ public class CarServiceImpl implements CarService {
     }
 
     /**
-     *
+     * Get all Cars in repository
      * @return
      */
     @Override
@@ -35,7 +35,7 @@ public class CarServiceImpl implements CarService {
     }
 
     /**
-     *
+     * Get Car by id in repository
      * @param id
      * @return
      */
@@ -45,27 +45,27 @@ public class CarServiceImpl implements CarService {
     }
 
     /**
-     *
+     * Create InternalCombustionEngine Car in repository
      * @param car
      * @return
      */
     @Override
-    public Car createICE(InternalCombustionEngine car) {
+    public InternalCombustionEngine createICE(InternalCombustionEngine car) {
         return carRepository.save(car);
     }
 
     /**
-     *
+     * Create ElectricVehicle Car in repository
      * @param car
      * @return
      */
     @Override
-    public Car createEV(ElectricVehicle car) {
+    public ElectricVehicle createEV(ElectricVehicle car) {
         return carRepository.save(car);
     }
 
     /**
-     *
+     * Delete Car by id from repository
      * @param id
      * @return
      */

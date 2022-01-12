@@ -8,6 +8,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+/**
+ * A Reservation for a Listing
+ */
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
@@ -36,9 +39,19 @@ public class Reservation {
     @Setter
     private LocalDate endDate;
 
+    /**
+     * Empty constructor
+     */
     public Reservation() {
     }
 
+    /**
+     * Constructor
+     * @param listing
+     * @param buyer
+     * @param startDate
+     * @param endDate
+     */
     public Reservation(Listing listing, User buyer, LocalDate startDate, LocalDate endDate) {
         this.listing = listing;
         this.buyer = buyer;

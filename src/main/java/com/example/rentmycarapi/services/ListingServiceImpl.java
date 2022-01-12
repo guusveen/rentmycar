@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * This class implements the methods of ListingService
+ */
 @Service
 public class ListingServiceImpl implements ListingService {
     private final ListingRepository listingRepository;

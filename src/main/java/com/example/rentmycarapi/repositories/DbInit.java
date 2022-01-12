@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+/**
+ * This class fills the JPA database with one Entity in each repository
+ */
 @Component
 public class DbInit {
     public DbInit(

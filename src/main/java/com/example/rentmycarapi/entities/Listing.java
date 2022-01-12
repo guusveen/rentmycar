@@ -10,6 +10,9 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Entity for a Listing
+ */
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
@@ -47,9 +50,20 @@ public class Listing {
     @OneToMany(mappedBy = "listing", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations;
 
+    /**
+     * Empty constructor
+     */
     public Listing() {
     }
 
+    /**
+     * constructor
+     * @param car
+     * @param seller
+     * @param startDate
+     * @param endDate
+     * @param location
+     */
     public Listing(Car car, User seller, LocalDate startDate, LocalDate endDate, String location) {
         this.car = car;
         this.seller = seller;

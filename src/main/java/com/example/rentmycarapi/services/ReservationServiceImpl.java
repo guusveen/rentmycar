@@ -4,6 +4,9 @@ import com.example.rentmycarapi.entities.Reservation;
 import com.example.rentmycarapi.repositories.ReservationRepository;
 import org.springframework.stereotype.Service;
 
+/**
+ * This class implements the methods of ReservationService
+ */
 @Service
 public class ReservationServiceImpl implements ReservationService {
     private final ReservationRepository reservationRepository;
